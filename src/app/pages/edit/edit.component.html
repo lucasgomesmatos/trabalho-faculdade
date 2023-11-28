@@ -1,0 +1,25 @@
+<div class=" max-w-[1400px] px-8 mt-8 flex items-center flex-col justify-around h-full">
+  <h1 class="my-8 font-semibold text-2xl">Editar Aluno</h1>
+  <form action="" class="space-y-6" [formGroup]="form">
+    <div class="flex w-[600px] bg-zinc-900 p-2 rounded-md gap-4 h-14 items-center focus-within:ring-1 focus-within:ring-zinc-600">
+      <label class="text-zinc-400 px-4" for="">Matricula:</label>
+      <input readonly type="text" class="bg-transparent flex-1 h-full outline-none " formControlName="registration">
+    </div>
+    <div [ngClass]="{'border-red-500 border': submitted && hasErros('name')}" class="flex w-[600px] bg-zinc-900 p-2 rounded-md gap-4 h-14 items-center focus-within:ring-1 focus-within:ring-zinc-600  ">
+      <label class="text-zinc-400 px-4" for="name">Nome:</label>
+      <input type="text" formControlName="name" id="name" class="bg-transparent flex-1 h-full outline-none">
+    </div>
+    <span *ngIf="hasErros('name') && hasErros('name')?.['required']" class="ml-2 mt-3 text-sm text-red-400">Informe o nome do Aluno</span>
+    <span *ngIf="hasErros('name') && hasErros('name')?.['minlength']" class="mt-3 text-sm text-red-400">O nome precisa ter no mínimo 3 caracteres</span>
+
+    <div [ngClass]="{'border-red-500 border': submitted && hasErros('name')} " class="flex w-[600px] bg-zinc-900 p-2 rounded-md gap-4 h-14 items-center focus-within:ring-1 focus-within:ring-zinc-600">
+      <label class="text-zinc-400 px-4" for="email">E-mail:</label>
+      <input type="email" formControlName="email" id="email" class="bg-transparent flex-1 h-full outline-none">
+    </div>
+
+    <span *ngIf="hasErros('email') && hasErros('email')?.['required']" class="ml-2 mt-3 text-sm text-red-400">Informe o E-mail</span>
+    <span *ngIf="hasErros('email') && hasErros('email')?.['email']" class="mt-3 text-sm text-red-400">Precisa ser um email válido</span>
+
+    <button [disabled]="loading" (click)="onSubmit()" class="px-4 py-2 w-40 h-12 bg-emerald-600 hover:bg-emerald-700 font-light transition-all hover:ring-1 focus-within:ring-emerald-500 hover:ring-emerald-500 flex items-center justify-center rounded-lg text-lg cursor-pointer disabled:cursor-not-allowed disabled:bg-zinc-500 disabled:text-zinc-950 disabled:font-bold">Salvar</button>
+  </form>
+</div>

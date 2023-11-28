@@ -1,13 +1,23 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterModule, RouterOutlet } from '@angular/router';
+
+import { AngularToastifyModule } from 'angular-toastify';
+import { HeaderComponent } from './components/header/header.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeaderComponent,
+    RouterModule,
+    AngularToastifyModule,
+    ModalComponent,
+  ],
 })
 export class AppComponent {
   title = 'app-crud-alunos';

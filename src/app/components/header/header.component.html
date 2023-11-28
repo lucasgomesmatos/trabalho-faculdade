@@ -1,0 +1,8 @@
+<div class="max-w-[1400px] mx-auto p-8 font-bold text-xl h-16  flex items-center gap-6 justify-between">
+  <div class="flex gap-8 items-center cursor-pointer">
+    <a [routerLink]="['/']">CRUD Alunos</a>
+  </div>
+  <button *ngIf="currentPath() === ''" [routerLink]="['criar']" routerLinkActive="active" type="button" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-900 font-light transition-all hover:ring-1 focus-within:ring-zinc-500 hover:ring-zinc-500 flex items-center justify-center rounded-lg text-sm">+ Novo Aluno</button>
+
+  <button *ngIf="currentPath() !== ''" [routerLink]="['/']" routerLinkActive="active" type="button" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-900 font-light transition-all hover:ring-1 focus-within:ring-zinc-500 hover:ring-zinc-500 flex items-center justify-center rounded-lg text-sm">Voltar</button>
+</div>

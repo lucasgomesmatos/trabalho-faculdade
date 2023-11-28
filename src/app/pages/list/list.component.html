@@ -1,0 +1,46 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-[1400px] px-8 mt-8">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 " *ngIf="students$  | async; else loading">
+    <thead class="text-xs bg-zinc-700 text-zinc-200 font-bold">
+      <tr>
+        <th scope="col" class="px-6 py-3 font-thin">
+          Nome do Aluno
+        </th>
+        <th scope="col" class="px-6 py-3 font-thin">
+          Email
+        </th>
+        <th scope="col" class="px-6 py-3 font-thin">
+          Matrícula
+        </th>
+        <th scope="col" class="px-6 py-3 font-thin">
+          Ações
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students$ | async" class="odd:bg-zinc-800 odd:dark:bg-zinc-900 even:bg-zinc-800  border-b dark:border-gray-700">
+        <th scope="row" class="px-6 py-4 font-light text-zinc-900 whitespace-nowrap dark:text-white">
+          {{ student.name }}
+        </th>
+        <th scope="row" class="px-6 py-4 font-light text-zinc-900 whitespace-nowrap dark:text-white">
+          {{ student.email }}
+        </th>
+        <td class="px-6 py-4 font-light text-zinc-900 whitespace-nowrap dark:text-white">
+          {{ student.registration }}
+        </td>
+
+        <td class="px-6 py-4 space-x-4">
+          <a (click)="onEdit(student.registration)" class="font-medium text-emerald-400 hover:text-emerald-500 cursor-pointer">Editar</a>
+          <button (click)="onDelete(student)" class="font-medium text-red-400 hover:text-red-500 cursor-pointer" type="button">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #loading>
+    <div *ngIf="error$ | async; else loadingNoError">
+      <span>Error ao carregar alunos. Tente novamente mais tarde</span>
+    </div>
+    <ng-template #loadingNoError>
+      <span>Carregando...</span>
+    </ng-template>
+  </ng-template>
+</div>
