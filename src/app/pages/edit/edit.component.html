@@ -12,7 +12,7 @@
     <span *ngIf="hasErros('name') && hasErros('name')?.['required']" class="ml-2 mt-3 text-sm text-red-400">Informe o nome do Aluno</span>
     <span *ngIf="hasErros('name') && hasErros('name')?.['minlength']" class="mt-3 text-sm text-red-400">O nome precisa ter no mínimo 3 caracteres</span>
 
-    <div [ngClass]="{'border-red-500 border': submitted && hasErros('name')} " class="flex w-[600px] bg-zinc-900 p-2 rounded-md gap-4 h-14 items-center focus-within:ring-1 focus-within:ring-zinc-600">
+    <div [ngClass]="{'border-red-500 border': submitted && hasErros('email')} " class="flex w-[600px] bg-zinc-900 p-2 rounded-md gap-4 h-14 items-center focus-within:ring-1 focus-within:ring-zinc-600">
       <label class="text-zinc-400 px-4" for="email">E-mail:</label>
       <input type="email" formControlName="email" id="email" class="bg-transparent flex-1 h-full outline-none">
     </div>
