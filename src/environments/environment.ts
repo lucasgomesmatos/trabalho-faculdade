@@ -1,3 +1,3 @@
 export const environment = {
-  BASE_URL_API: 'http://localhost:8080/api',
+  BASE_URL_API: 'https://trabalho-faculdade-api.onrender.com/api',
 };
